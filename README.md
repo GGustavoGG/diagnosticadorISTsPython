@@ -17,7 +17,7 @@ Sintomas
 * Febre baixa
 
 Aparecimento do sintomas
-* entre 2 e 10 dias ultima relação sexual
+* entre 0-2 e 9-11 dias ultima relação sexual
 * transmissão oral, anal e vaginal
 
 Links<br>
