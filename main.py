@@ -1,2 +1,7 @@
+from diagnosticador.diagnosticador import Diagnosticador, Sintomas, LabelSintomas
+
 if __name__ == '__main__':
-    print('PyCharm')
+    print("Bem vindo")
+    diagnosticador = Diagnosticador()
+    sintoms = Sintomas()
+    print(LabelSintomas.MUITO_BAIXA)
