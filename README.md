@@ -40,15 +40,15 @@ Aparecimento do Sintomas
 Sintomas
 * Ferida cicatrizada no local de entrada da bactéria (pênis, vulva, vagina, colo uterino, ânus, boca, ou outros locais da pele)
 * Manchas no corpo (especialmente palma da mão e dos pés)
+*  Descamação da pele;
+* ínguas pelo corpo
 * Não produz coceira
 * febre 
 * mal-estar
 * dor de cabeça
-* ínguas pelo corpo
 * Dor muscular
 * Perda de peso
 * Falta de apetite
-*  Descamação da pele;
 
 Aparecimento do Sintomas
 * 3 a 180 dias ultima relação sexual
