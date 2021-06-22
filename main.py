@@ -3,21 +3,18 @@ from random import random
 from diagnosticador.diagnosticador import Diagnosticador, Sintomas, LabelSintomas
 
 def mockaDados(sintomas):
-    sintomas.ultima_relacao_sexual_vaginal = 5
-    sintomas.ultima_relacao_sexual_oral = 5
-    sintomas.ultima_relacao_sexual_anal = 5
+    sintomas.ultima_relacao_sexual_vaginal = 11
+    sintomas.ultima_relacao_sexual_oral = 11
+    sintomas.ultima_relacao_sexual_anal = 11
 
     sintomas.primeira_relacao_sexual_vaginal = 2500
     sintomas.primeira_relacao_sexual_oral = 2500
     sintomas.primeira_relacao_sexual_anal = 2500
 
-    sintomas.coceira_genitalia = 60
-    sintomas.dor_durante_relacao_sexual = 20
     sintomas.corrimento_amarelado_claro = 60
 
     sintomas.ferida_genitalia = 70
 
-    sintomas.dor_urinar = 60
     sintomas.ingua_virilha = 60
 
     sintomas.ferida_cicatrizada_genitalia = 70
@@ -33,6 +30,12 @@ def mockaDados(sintomas):
     sintomas.feridas_pequenas_com_pus = 90
     sintomas.dor_genitalia = 20
 
+    sintomas.corrimento_anormal = 80
+    sintomas.dor_durante_relacao_sexual = 80
+    sintomas.dor_urinar = 0
+    sintomas.coceira_genitalia = 0
+
+
 if __name__ == '__main__':
     print("Bem vindo")
     diagnosticador = Diagnosticador()
@@ -42,5 +45,6 @@ if __name__ == '__main__':
     #diagnosticador.diagnostico_sifilis_estagio1(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio2(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio3(sintomas)
-    diagnosticador.diagnostico_cancro_mole(sintomas)
+    #diagnosticador.diagnostico_cancro_mole(sintomas)
+    diagnosticador.diagnostico_tricomoniase(sintomas)
 
