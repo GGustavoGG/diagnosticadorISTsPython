@@ -101,10 +101,10 @@ Links <br>
 ### Tricomoníase
 Sintomas
 * Corrimento anormal
-* coceira região intima
-* sangramento relação sexual
 * dor durante a relação sexual
 * dor ao urinar
+* coceira região intima
+* sangramento relação sexual
 * irritação vulvar
 * vermelhidão na genitalia
 
