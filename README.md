@@ -121,11 +121,14 @@ Aparecimento de sintomas
 * Também é comum: febre
 
 Aparecimento de sintomas
-* 1 a 3 semanas após a relação sexual desprotegida
+* 3 a 15 dias após a relação sexual desprotegida
 
 Link
 
 - https://www.tuasaude.com/clamidia/
+- https://saude.abril.com.br/medicina/o-que-e-clamidia-sex-education/
+- https://www.doctoralia.com.br/perguntas-respostas/qual-o-tempo-maximo-de-incubacao-da-clamidia-se-ela-se-manifestar-no-orgao-masculino-significa
+
 
 ### Herpes genital
 * Dores locais: pênis ou vagina
