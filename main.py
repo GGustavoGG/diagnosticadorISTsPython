@@ -34,6 +34,11 @@ def mockaDados(sintomas):
     sintomas.dor_durante_relacao_sexual = 80
     sintomas.dor_urinar = 0
     sintomas.coceira_genitalia = 0
+    
+    sintomas.dor_urinar = 100
+    sintomas.corrimento_vaginal_secrecao_peniana = 60
+    sintomas.sangramento_vaginal_dor_testicular = 80
+    sintomas.febre = 0
 
 
 if __name__ == '__main__':
@@ -41,6 +46,9 @@ if __name__ == '__main__':
     diagnosticador = Diagnosticador()
     sintomas = Sintomas()
     mockaDados(sintomas)
+    
+	#diagnosticador.diagnostico_clamidia(sintomas)
+
     #diagnosticador.diagnostico_gonorreia(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio1(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio2(sintomas)
