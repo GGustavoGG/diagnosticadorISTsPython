@@ -51,8 +51,8 @@ if __name__ == '__main__':
 
     #diagnosticador.diagnostico_gonorreia(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio1(sintomas)
-    #diagnosticador.diagnostico_sifilis_estagio2(sintomas)
+    diagnosticador.diagnostico_sifilis_estagio2(sintomas)
     #diagnosticador.diagnostico_sifilis_estagio3(sintomas)
     #diagnosticador.diagnostico_cancro_mole(sintomas)
-    diagnosticador.diagnostico_tricomoniase(sintomas)
+    #diagnosticador.diagnostico_tricomoniase(sintomas)
 

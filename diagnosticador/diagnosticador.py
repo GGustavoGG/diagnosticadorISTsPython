@@ -31,30 +31,30 @@ class Diagnosticador:
         self.in_met_defuzz = in_met_defuzz
         self.acuracia = acuracia
 
-	def diagnostico_clamidia(self, sintomas):
+    def diagnostico_clamidia(self, sintomas):
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
         MUDA_QUARENTA = 40
-		
+
         #----------------------------------------------------------------------#
         #                           Variável de entrada                        #
         #----------------------------------------------------------------------#
-        
+
         ultima_relacao_sexual_vaginal = ctrl.Antecedent(np.arange(0, 20, self.acuracia), 'ultima_relacao_sexual_vaginal')
         ultima_relacao_sexual_oral = ctrl.Antecedent(np.arange(0, 20, self.acuracia), 'ultima_relacao_sexual_oral')
         ultima_relacao_sexual_anal = ctrl.Antecedent(np.arange(0, 20, self.acuracia), 'ultima_relacao_sexual_anal')
 
         dor_urinar = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'dor_urinar')
-        
+
         # Essa variavel serve para identificar corrimento vaginal ou secreção no penis no caso dos homens
         corrimento_vaginal_secrecao_peniana = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'corrimento_vaginal_secrecao_peniana')
-        
+
         # Variavel representando sangramento vagina ou dor testicular
         sangramento_vaginal_dor_testicular = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'sangramento_vaginal_dor_testicular')
-        
+
         febre = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'febre');
-        
+
         possibilidade_clamidia = ctrl.Consequent(np.arange(LabelDoencas.NENHUMA.value, LabelDoencas.MUITO_ALTA.value, self.acuracia), 'possibilidade_clamidia', defuzzify_method = self.in_met_defuzz)
 
         # ==============================================================================================================#
@@ -107,7 +107,6 @@ class Diagnosticador:
         possibilidade_clamidia[LabelDoencas.MEDIA.name] = fuzz.trimf(possibilidade_clamidia.universe, [LabelDoencas.MEDIA.value - MUDA_VINTE, LabelDoencas.MEDIA.value, LabelDoencas.MEDIA.value + MUDA_VINTE])
         possibilidade_clamidia[LabelDoencas.ALTA.name] = fuzz.trimf(possibilidade_clamidia.universe, [LabelDoencas.ALTA.value - MUDA_VINTE, LabelDoencas.ALTA.value, LabelDoencas.ALTA.value + MUDA_VINTE])
         possibilidade_clamidia[LabelDoencas.MUITO_ALTA.name] = fuzz.trimf(possibilidade_clamidia.universe, [LabelDoencas.MUITO_ALTA.value - MUDA_DEZ,  LabelDoencas.MUITO_ALTA.value, LabelDoencas.MUITO_ALTA.value])
-
 
 
         r0 = ctrl.Rule(corrimento_vaginal_secrecao_peniana[LabelSintomas.NENHUMA.name] & sangramento_vaginal_dor_testicular[LabelSintomas.NENHUMA.name] & dor_urinar[LabelSintomas.NENHUMA.name] & febre[LabelSintomas.NENHUMA.name] &  (ultima_relacao_sexual_vaginal['INSUFICIENTE'] | ultima_relacao_sexual_oral['INSUFICIENTE'] | ultima_relacao_sexual_anal['INSUFICIENTE']), possibilidade_clamidia[LabelDoencas.NENHUMA.name])
@@ -878,10 +877,10 @@ class Diagnosticador:
         r765 = ctrl.Rule(corrimento_vaginal_secrecao_peniana[LabelSintomas.ALTA.name] & sangramento_vaginal_dor_testicular[LabelSintomas.ALTA.name] & dor_urinar[LabelSintomas.ALTA.name] & febre[LabelSintomas.ALTA.name] &  (ultima_relacao_sexual_vaginal['INSUFICIENTE'] | ultima_relacao_sexual_oral['INSUFICIENTE'] | ultima_relacao_sexual_anal['INSUFICIENTE']), possibilidade_clamidia[LabelDoencas.MEDIA.name])
         r766 = ctrl.Rule(corrimento_vaginal_secrecao_peniana[LabelSintomas.ALTA.name] & sangramento_vaginal_dor_testicular[LabelSintomas.ALTA.name] & dor_urinar[LabelSintomas.ALTA.name] & febre[LabelSintomas.ALTA.name] &  (ultima_relacao_sexual_vaginal['SUFICIENTE'] | ultima_relacao_sexual_oral['SUFICIENTE'] | ultima_relacao_sexual_anal['SUFICIENTE']), possibilidade_clamidia[LabelDoencas.MUITO_ALTA.name])
         r767 = ctrl.Rule(corrimento_vaginal_secrecao_peniana[LabelSintomas.ALTA.name] & sangramento_vaginal_dor_testicular[LabelSintomas.ALTA.name] & dor_urinar[LabelSintomas.ALTA.name] & febre[LabelSintomas.ALTA.name] &  (ultima_relacao_sexual_vaginal['INSUFICIENTE_ALTO'] | ultima_relacao_sexual_oral['INSUFICIENTE_ALTO'] | ultima_relacao_sexual_anal['INSUFICIENTE_ALTO']), possibilidade_clamidia[LabelDoencas.MEDIA.name])
-        
+
 
         clamidia_ctrl = ctrl.ControlSystem([r0,r1,r2,r3,r4,r5,r6,r7,r8,r9,r10,r11,r12,r13,r14,r15,r16,r17,r18,r19,r20,r21,r22,r23,r24,r25,r26,r27,r28,r29,r30,r31,r32,r33,r34,r35,r36,r37,r38,r39,r40,r41,r42,r43,r44,r45,r46,r47,r48,r49,r50,r51,r52,r53,r54,r55,r56,r57,r58,r59,r60,r61,r62,r63,r64,r65,r66,r67,r68,r69,r70,r71,r72,r73,r74,r75,r76,r77,r78,r79,r80,r81,r82,r83,r84,r85,r86,r87,r88,r89,r90,r91,r92,r93,r94,r95,r96,r97,r98,r99,r100,r101,r102,r103,r104,r105,r106,r107,r108,r109,r110,r111,r112,r113,r114,r115,r116,r117,r118,r119,r120,r121,r122,r123,r124,r125,r126,r127,r128,r129,r130,r131,r132,r133,r134,r135,r136,r137,r138,r139,r140,r141,r142,r143,r144,r145,r146,r147,r148,r149,r150,r151,r152,r153,r154,r155,r156,r157,r158,r159,r160,r161,r162,r163,r164,r165,r166,r167,r168,r169,r170,r171,r172,r173,r174,r175,r176,r177,r178,r179,r180,r181,r182,r183,r184,r185,r186,r187,r188,r189,r190,r191,r192,r193,r194,r195,r196,r197,r198,r199,r200,r201,r202,r203,r204,r205,r206,r207,r208,r209,r210,r211,r212,r213,r214,r215,r216,r217,r218,r219,r220,r221,r222,r223,r224,r225,r226,r227,r228,r229,r230,r231,r232,r233,r234,r235,r236,r237,r238,r239,r240,r241,r242,r243,r244,r245,r246,r247,r248,r249,r250,r251,r252,r253,r254,r255,r256,r257,r258,r259,r260,r261,r262,r263,r264,r265,r266,r267,r268,r269,r270,r271,r272,r273,r274,r275,r276,r277,r278,r279,r280,r281,r282,r283,r284,r285,r286,r287,r288,r289,r290,r291,r292,r293,r294,r295,r296,r297,r298,r299,r300,r301,r302,r303,r304,r305,r306,r307,r308,r309,r310,r311,r312,r313,r314,r315,r316,r317,r318,r319,r320,r321,r322,r323,r324,r325,r326,r327,r328,r329,r330,r331,r332,r333,r334,r335,r336,r337,r338,r339,r340,r341,r342,r343,r344,r345,r346,r347,r348,r349,r350,r351,r352,r353,r354,r355,r356,r357,r358,r359,r360,r361,r362,r363,r364,r365,r366,r367,r368,r369,r370,r371,r372,r373,r374,r375,r376,r377,r378,r379,r380,r381,r382,r383,r384,r385,r386,r387,r388,r389,r390,r391,r392,r393,r394,r395,r396,r397,r398,r399,r400,r401,r402,r403,r404,r405,r406,r407,r408,r409,r410,r411,r412,r413,r414,r415,r416,r417,r418,r419,r420,r421,r422,r423,r424,r425,r426,r427,r428,r429,r430,r431,r432,r433,r434,r435,r436,r437,r438,r439,r440,r441,r442,r443,r444,r445,r446,r447,r448,r449,r450,r451,r452,r453,r454,r455,r456,r457,r458,r459,r460,r461,r462,r463,r464,r465,r466,r467,r468,r469,r470,r471,r472,r473,r474,r475,r476,r477,r478,r479,r480,r481,r482,r483,r484,r485,r486,r487,r488,r489,r490,r491,r492,r493,r494,r495,r496,r497,r498,r499,r500,r501,r502,r503,r504,r505,r506,r507,r508,r509,r510,r511,r512,r513,r514,r515,r516,r517,r518,r519,r520,r521,r522,r523,r524,r525,r526,r527,r528,r529,r530,r531,r532,r533,r534,r535,r536,r537,r538,r539,r540,r541,r542,r543,r544,r545,r546,r547,r548,r549,r550,r551,r552,r553,r554,r555,r556,r557,r558,r559,r560,r561,r562,r563,r564,r565,r566,r567,r568,r569,r570,r571,r572,r573,r574,r575,r576,r577,r578,r579,r580,r581,r582,r583,r584,r585,r586,r587,r588,r589,r590,r591,r592,r593,r594,r595,r596,r597,r598,r599,r600,r601,r602,r603,r604,r605,r606,r607,r608,r609,r610,r611,r612,r613,r614,r615,r616,r617,r618,r619,r620,r621,r622,r623,r624,r625,r626,r627,r628,r629,r630,r631,r632,r633,r634,r635,r636,r637,r638,r639,r640,r641,r642,r643,r644,r645,r646,r647,r648,r649,r650,r651,r652,r653,r654,r655,r656,r657,r658,r659,r660,r661,r662,r663,r664,r665,r666,r667,r668,r669,r670,r671,r672,r673,r674,r675,r676,r677,r678,r679,r680,r681,r682,r683,r684,r685,r686,r687,r688,r689,r690,r691,r692,r693,r694,r695,r696,r697,r698,r699,r700,r701,r702,r703,r704,r705,r706,r707,r708,r709,r710,r711,r712,r713,r714,r715,r716,r717,r718,r719,r720,r721,r722,r723,r724,r725,r726,r727,r728,r729,r730,r731,r732,r733,r734,r735,r736,r737,r738,r739,r740,r741,r742,r743,r744,r745,r746,r747,r748,r749,r750,r751,r752,r753,r754,r755,r756,r757,r758,r759,r760,r761,r762,r763,r764,r765,r766,r767])
-        
+
         #define o simulador da clamidia
         clamidia_simulacao = ctrl.ControlSystemSimulation(clamidia_ctrl)
 
@@ -889,7 +888,7 @@ class Diagnosticador:
         clamidia_simulacao.input['ultima_relacao_sexual_vaginal'] = sintomas.ultima_relacao_sexual_vaginal
         clamidia_simulacao.input['ultima_relacao_sexual_oral'] = sintomas.ultima_relacao_sexual_oral
         clamidia_simulacao.input['ultima_relacao_sexual_anal'] = sintomas.ultima_relacao_sexual_anal
-        
+
         clamidia_simulacao.input['corrimento_vaginal_secrecao_peniana'] = sintomas.corrimento_vaginal_secrecao_peniana
         clamidia_simulacao.input['sangramento_vaginal_dor_testicular'] = sintomas.sangramento_vaginal_dor_testicular
         clamidia_simulacao.input['febre'] = sintomas.febre
@@ -915,12 +914,8 @@ class Diagnosticador:
 
         dor_urinar = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'dor_urinar')
         corrimento_amarelado_claro = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'corrimento_amarelado_claro')
-        #sangramento_durante_relacao_sexual = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'sangramento_durante_relacao_sexual')
         dor_durante_relacao_sexual = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'dor_durante_relacao_sexual')
         coceira_genitalia = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'coceira_genitalia')
-        #sangramento_anus = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'coceira_genitalia')
-        #dor_garganta = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'dor_garganta')
-        #febre = ctrl.Antecedent(np.arange(LabelSintomas.NENHUMA.value, LabelSintomas.ALTA.value, self.acuracia), 'febre')
 
         possibilidade_gonorreia = ctrl.Consequent(np.arange(LabelDoencas.NENHUMA.value, LabelDoencas.MUITO_ALTA.value, self.acuracia), 'possibilidade_gonorreia', defuzzify_method = self.in_met_defuzz)
 
@@ -954,13 +949,6 @@ class Diagnosticador:
         corrimento_amarelado_claro[LabelSintomas.MEDIA.name] = fuzz.trapmf(corrimento_amarelado_claro.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
         corrimento_amarelado_claro[LabelSintomas.ALTA.name] = fuzz.trimf(corrimento_amarelado_claro.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
 
-
-        #Sangramento Durante Relação sexual
-        # sangramento_durante_relacao_sexual[LabelSintomas.NENHUMA.name] = fuzz.trimf(sangramento_durante_relacao_sexual.universe, [LabelSintomas.NENHUMA.value, LabelSintomas.NENHUMA.value, (LabelSintomas.NENHUMA.value + MUDA_DEZ)])
-        # sangramento_durante_relacao_sexual[LabelSintomas.BAIXA.name] = fuzz.trapmf(sangramento_durante_relacao_sexual.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
-        # sangramento_durante_relacao_sexual[LabelSintomas.MEDIA.name] = fuzz.trapmf(sangramento_durante_relacao_sexual.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
-        # sangramento_durante_relacao_sexual[LabelSintomas.ALTA.name] = fuzz.trimf(sangramento_durante_relacao_sexual.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
-
         #Dor Durante Relação sexual
         dor_durante_relacao_sexual[LabelSintomas.NENHUMA.name] = fuzz.trimf(dor_durante_relacao_sexual.universe, [LabelSintomas.NENHUMA.value, LabelSintomas.NENHUMA.value, (LabelSintomas.NENHUMA.value + MUDA_DEZ)])
         dor_durante_relacao_sexual[LabelSintomas.BAIXA.name] = fuzz.trapmf(dor_durante_relacao_sexual.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
@@ -972,23 +960,6 @@ class Diagnosticador:
         coceira_genitalia[LabelSintomas.BAIXA.name] = fuzz.trapmf(coceira_genitalia.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
         coceira_genitalia[LabelSintomas.MEDIA.name] = fuzz.trapmf(coceira_genitalia.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
         coceira_genitalia[LabelSintomas.ALTA.name] = fuzz.trimf(coceira_genitalia.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
-        #sangramento no anus
-        # sangramento_anus[LabelSintomas.NENHUMA.name] = fuzz.trimf(sangramento_anus.universe, [LabelSintomas.NENHUMA.value, LabelSintomas.NENHUMA.value, (LabelSintomas.NENHUMA.value + MUDA_DEZ)])
-        # sangramento_anus[LabelSintomas.BAIXA.name] = fuzz.trapmf(sangramento_anus.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
-        # sangramento_anus[LabelSintomas.MEDIA.name] = fuzz.trapmf(sangramento_anus.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
-        # sangramento_anus[LabelSintomas.ALTA.name] = fuzz.trimf(sangramento_anus.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
-
-        #Dor de garganta
-        # dor_garganta[LabelSintomas.NENHUMA.name] = fuzz.trimf(dor_garganta.universe, [LabelSintomas.NENHUMA.value, LabelSintomas.NENHUMA.value, (LabelSintomas.NENHUMA.value + MUDA_DEZ)])
-        # dor_garganta[LabelSintomas.BAIXA.name] = fuzz.trapmf(dor_garganta.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
-        # dor_garganta[LabelSintomas.MEDIA.name] = fuzz.trapmf(dor_garganta.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
-        # dor_garganta[LabelSintomas.ALTA.name] = fuzz.trimf(dor_garganta.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
-
-        #febre
-        # febre[LabelSintomas.NENHUMA.name] = fuzz.trimf(febre.universe, [LabelSintomas.NENHUMA.value, LabelSintomas.NENHUMA.value, (LabelSintomas.NENHUMA.value + MUDA_DEZ)])
-        # febre[LabelSintomas.BAIXA.name] = fuzz.trapmf(febre.universe, [LabelSintomas.BAIXA.value - MUDA_QUARENTA, LabelSintomas.BAIXA.value - MUDA_VINTE, LabelSintomas.BAIXA.value + MUDA_DEZ, LabelSintomas.BAIXA.value + MUDA_TRINTA])
-        # febre[LabelSintomas.MEDIA.name] = fuzz.trapmf(febre.universe, [LabelSintomas.MEDIA.value - MUDA_QUARENTA, LabelSintomas.MEDIA.value - MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_DEZ, LabelSintomas.MEDIA.value + MUDA_TRINTA])
-        # febre[LabelSintomas.ALTA.name] = fuzz.trimf(febre.universe, [LabelSintomas.ALTA.value - MUDA_TRINTA, LabelSintomas.ALTA.value, LabelSintomas.ALTA.value])
 
         #==========================================Possibilidade de Gonorreia==========================================#
         possibilidade_gonorreia[LabelDoencas.NENHUMA.name] = fuzz.trimf(possibilidade_gonorreia.universe,[LabelDoencas.NENHUMA.value, LabelDoencas.NENHUMA.value,(LabelDoencas.NENHUMA.value + MUDA_DEZ)])
@@ -1825,18 +1796,13 @@ class Diagnosticador:
 
         gonorreia_simulacao.input['dor_urinar'] = sintomas.dor_urinar
         gonorreia_simulacao.input['corrimento_amarelado_claro'] = sintomas.corrimento_amarelado_claro
-        #gonorreia_simulacao.input['sangramento_durante_relacao_sexual'] = sintomas.sangramento_durante_relacao_sexual
         gonorreia_simulacao.input['dor_durante_relacao_sexual'] = sintomas.dor_durante_relacao_sexual
         gonorreia_simulacao.input['coceira_genitalia'] = sintomas.coceira_genitalia
-        #gonorreia_simulacao.input['sangramento_anus'] = sintomas.sangramento_anus
-        #gonorreia_simulacao.input['dor_garganta'] = sintomas.dor_garganta
-        #gonorreia_simulacao.input['febre'] = sintomas.febre
 
         gonorreia_simulacao.compute()
 
         print(gonorreia_simulacao.output['possibilidade_gonorreia'])
         possibilidade_gonorreia.view(sim=gonorreia_simulacao)
-
 
     def diagnostico_sifilis_estagio1(self, sintomas):
         MUDA_DEZ = 10
@@ -5612,7 +5578,6 @@ class Sintomas:
         self.sangramento_urinar = 0
         self.irritacao_vulvar = 0
         self.vermelhidao_genitalia = 0
-		self.dor_urinar = 0
-	    self.corrimento_vaginal_secrecao_peniana = 0
-	    self.sangramento_vaginal_dor_testicular = 0
+        self.corrimento_vaginal_secrecao_peniana = 0
+        self.sangramento_vaginal_dor_testicular = 0
 
