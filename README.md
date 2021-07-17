@@ -112,6 +112,65 @@ Aparecimento de sintomas
 * 8-10 a 25-35 dias (casos raros até 30 dias) ultima relação sexual
 * transmissão vaginal
 
+### Clamídia
+
+* Dores locais: parte inferior do abdômen, pélvis, testículo ou vagina
+* Dores circunstanciais: durante a micção ou durante a relação sexual
+* Na região genital: corrimento vaginal anormal, sangramento vaginal ou secreção no pênis
+* Na menstruação: menstruação irregular ou sangramento pela vagina
+* Também é comum: febre
+
+Aparecimento de sintomas
+* 3 a 15 dias após a relação sexual desprotegida
+
+Link
+
+- https://www.tuasaude.com/clamidia/
+- https://saude.abril.com.br/medicina/o-que-e-clamidia-sex-education/
+- https://www.doctoralia.com.br/perguntas-respostas/qual-o-tempo-maximo-de-incubacao-da-clamidia-se-ela-se-manifestar-no-orgao-masculino-significa
+
+
+### Herpes genital
+* Dores locais: pênis ou vagina
+* Dores circunstanciais: durante a micção 
+* Na pele: bolha, erupções, sarna, vermelhidão ou úlceras
+* Na região genital: dores ou úlceras
+* Também é comum: coceira, inchaço dos gânglios, infecção recorrente ou sensação de formigamento
+
+Aparecimento de sintomas
+* 10 a 15 dias após a relação sexual desprotegida 
+
+### Candidíase
+
+* Dores locais: penis ou vagina
+* Dores circunstanciais: durante a micção ou durante a relação sexual
+* Na região genital: Corrimento esbranquiçado, coceira, escoriações na região vulvar, coloração vermelha. 
+
+
+Aparecimento de sintomas
+A pessoa pode já ter o fungo e os sintomas só aparecerem quando o sistema imunológico estiver enfraquecido.
+
+Links
+- https://facsaopaulo.edu.br/wp-content/uploads/sites/16/2020/09/CANDIDA-ALBICANS-UM-FUNGO-OPORTUNISTA.pdf
+
+### Condiloma acuminado ou crista de galo
+Está atrelado ao HPV
+
+#### Condiloma plano
+* Na região genital: lesões acinzentadas 
+* Também é comum: lesões acinzentadas em dobras do corpo
+
+#### Condiloma acuminado
+* Na região genital: verrugas
+* Também é comum: coceira, queimação e surgimento de outras verrugas
+
+Aparecimento de sintomas
+Pode não aparecer
+
+Links
+- https://www.h9j.com.br/pt/sobre-nos-site/blog-site/paginas/condiloma-acuminado-verrugas-genitais-sao-causadas-por-hpv.aspx
+- http://giv.org.br/DST/Condiloma-Acuminado-HPV/index.html
+
 Links<br>
 - http://www.aids.gov.br/pt-br/publico-geral/o-que-sao-ist/tricomoniase
 - https://mundoeducacao.uol.com.br/doencas/tricomoniase.htm#:~:text=O%20per%C3%ADodo%20de%20incuba%C3%A7%C3%A3o%20%C3%A9,mulher%20e%20seu%20parceiro%20sexual.
