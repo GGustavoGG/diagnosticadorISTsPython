@@ -896,7 +896,7 @@ class Diagnosticador:
 
         herpes_genital_simulacao.compute()
 
-        print(herpes_genital_simulacao.output['possibilidade_herpes_genital'])
+        print(f"Resultado herpes genital: {herpes_genital_simulacao.output['possibilidade_herpes_genital']:.2}%")
         possibilidade_herpes_genital.view(sim=herpes_genital_simulacao)
 
     def diagnostico_clamidia(self, sintomas):
@@ -1764,7 +1764,8 @@ class Diagnosticador:
 
         clamidia_simulacao.compute()
 
-        print(clamidia_simulacao.output['possibilidade_clamidia'])
+        print(f"Resultado clamidia: {clamidia_simulacao.output['possibilidade_clamidia']:.2}%")
+
         possibilidade_clamidia.view(sim=clamidia_simulacao)
 
     def diagnostico_gonorreia(self, sintomas):
@@ -2669,7 +2670,8 @@ class Diagnosticador:
 
         gonorreia_simulacao.compute()
 
-        print(gonorreia_simulacao.output['possibilidade_gonorreia'])
+        print(f"Resultado gonorreia: {gonorreia_simulacao.output['possibilidade_gonorreia']:.2}%")
+
         possibilidade_gonorreia.view(sim=gonorreia_simulacao)
 
     def diagnostico_sifilis_estagio1(self, sintomas):
@@ -2799,7 +2801,8 @@ class Diagnosticador:
 
         sifilis_estagio1_simulacao.compute()
 
-        print(sifilis_estagio1_simulacao.output['possibilidade_sifilis_estagio1'])
+        print(f"Resultado sífilis estágio 1: {sifilis_estagio1_simulacao.output['possibilidade_sifilis_estagio1']:.2}%")
+
         possibilidade_sifilis_estagio1.view(sim=sifilis_estagio1_simulacao)
 
     def diagnostico_sifilis_estagio2(self,sintomas):
@@ -3703,7 +3706,8 @@ class Diagnosticador:
         sifilis_estagio2_simulacao.input['inguas_pelo_corpo'] = sintomas.inguas_pelo_corpo
 
         sifilis_estagio2_simulacao.compute()
-        print(sifilis_estagio2_simulacao.output['possibilidade_sifilis_estagio2'])
+        print(f"Resultado sífilis estágio 2: {sifilis_estagio2_simulacao.output['possibilidade_sifilis_estagio2']:.2}%")
+
         possibilidade_sifilis_estagio2.view(sim=sifilis_estagio2_simulacao)
 
     def diagnostico_sifilis_estagio3(self, sintomas):
@@ -4607,7 +4611,8 @@ class Diagnosticador:
         sifilis_estagio3_simulacao.input['delirios'] = sintomas.delirios
 
         sifilis_estagio3_simulacao.compute()
-        print(sifilis_estagio3_simulacao.output['possibilidade_sifilis_estagio3'])
+        print(f"Resultado sífilis estágio 3: {sifilis_estagio3_simulacao.output['possibilidade_sifilis_estagio3']:.2}%")
+
         possibilidade_sifilis_estagio3.view(sim=sifilis_estagio3_simulacao)
 
     def diagnostico_cancro_mole(self, sintomas):
@@ -5511,7 +5516,8 @@ class Diagnosticador:
         cancro_mole_simulacao.input['dor_genitalia'] = sintomas.dor_genitalia
 
         cancro_mole_simulacao.compute()
-        print(cancro_mole_simulacao.output['possibilidade_cancro_mole'])
+        print(f"Resultado cancro mole: {cancro_mole_simulacao.output['possibilidade_cancro_mole']:.2}%")
+
         possibilidade_cancro_mole.view(sim=cancro_mole_simulacao)
 
     def diagnostico_tricomoniase(self, sintomas):
@@ -6403,7 +6409,8 @@ class Diagnosticador:
         tricomoniase_simulacao.input['coceira_genitalia'] = sintomas.coceira_genitalia
 
         tricomoniase_simulacao.compute()
-        print(tricomoniase_simulacao.output['possibilidade_tricomoniase'])
+        print(f"Resultado tricomoniase: {tricomoniase_simulacao.output['possibilidade_tricomoniase']:.2}%")
+
         possibilidade_tricomoniase.view(sim=tricomoniase_simulacao)
     
     def diagnostico_hiv(self, sintomas):
@@ -7008,12 +7015,11 @@ class Diagnosticador:
         hiv_simulacao.input['febre'] = sintomas.febre
         hiv_simulacao.input['dor_cabeca'] = sintomas.dor_cabeca
         hiv_simulacao.input['ganglio_inchado'] = sintomas.ganglio_inchado
-        hiv_simulacao.input['dor_garganta'] = sintomas.dor_garganta
 
 
         hiv_simulacao.compute()
 
-        print(hiv_simulacao.output['possibilidade_hiv'])
+        print(f"Resultado HIV: {hiv_simulacao.output['possibilidade_hiv']:.2}%")
         possibilidade_hiv.view(sim=hiv_simulacao)
 
 class Sintomas:
