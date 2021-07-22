@@ -9,7 +9,7 @@ Sintomas
 * Dor ao urinar ou no baixo ventre (pé da barriga)
 * corrimento amarelado ou claro (em mulheres fora da época da menstruação)
 * sangramento durante a relação sexual
-* dor durante relação sexual  
+* dor durante relação sexual
 * coceira nas partes intimas
 * sangramento no ânus
 * Dor de garganta
@@ -178,6 +178,29 @@ Links<br>
 - https://www.gineco.com.br/saude-feminina/doencas-femininas/tricomoniase
 
 <hr>
+
+### HIV
+Sintomas:
+* Dor de cabeça
+* Febre baixa
+* Cansaço excessivo
+* Ínguas (gânglios) inflamadas
+* Garganta inflamada
+* Dor nas articulações
+* Aftas ou feridas na boca
+* Suores noturnos
+* Diarreia
+
+Aparecimento de sintomas:
+Cerca de 2 semanas após o contato com o vírus
+
+Para algumas pessoas esses sintomas podem não aparecer durante 10 anos.
+
+Link: 
+- https://www.tuasaude.com/primeiros-sintomas-da-aids/
+
+<hr>
+
 
 ### Informações Adicionais 
 
