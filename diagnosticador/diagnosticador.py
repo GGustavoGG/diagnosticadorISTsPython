@@ -1,3 +1,11 @@
+"""
+Diagnosticador
+========================
+Nesse módulo, existem 2 classes bases para construir labels de intensidade do sintoma
+e a respeito da possibilidade de ter a IST. Além disso, foi implementado a class Diagnosticador
+que abriga o diagnóstico de cada IST abordada pelo sistema.
+"""
+
 from enum import Enum
 
 import numpy as np
@@ -26,12 +34,34 @@ class LabelSintomas(Enum):
 
 
 class Diagnosticador:
+    """
+    Classe com todos os métodos fuzzy para gerar uma preliminar de cada IST
+    """
+    
 
     def __init__(self, in_met_defuzz = "centroid", acuracia = 0.1) -> None:
         self.in_met_defuzz = in_met_defuzz
         self.acuracia = acuracia
 
     def diagnostico_herpes_genital(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST herpes genital, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
+
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -900,6 +930,23 @@ class Diagnosticador:
         possibilidade_herpes_genital.view(sim=herpes_genital_simulacao)
 
     def diagnostico_clamidia(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST clamídia, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -1769,6 +1816,23 @@ class Diagnosticador:
         possibilidade_clamidia.view(sim=clamidia_simulacao)
 
     def diagnostico_gonorreia(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST gonorreia, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -2675,6 +2739,23 @@ class Diagnosticador:
         possibilidade_gonorreia.view(sim=gonorreia_simulacao)
 
     def diagnostico_sifilis_estagio1(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST sífilis estágio 1, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -2806,6 +2887,23 @@ class Diagnosticador:
         possibilidade_sifilis_estagio1.view(sim=sifilis_estagio1_simulacao)
 
     def diagnostico_sifilis_estagio2(self,sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST sífilis estágio 2, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -3711,6 +3809,23 @@ class Diagnosticador:
         possibilidade_sifilis_estagio2.view(sim=sifilis_estagio2_simulacao)
 
     def diagnostico_sifilis_estagio3(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST sífilis estágio 3, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -4616,6 +4731,23 @@ class Diagnosticador:
         possibilidade_sifilis_estagio3.view(sim=sifilis_estagio3_simulacao)
 
     def diagnostico_cancro_mole(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST cancro mole, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -5521,6 +5653,23 @@ class Diagnosticador:
         possibilidade_cancro_mole.view(sim=cancro_mole_simulacao)
 
     def diagnostico_tricomoniase(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST tricomoniase, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        =======
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -6414,6 +6563,23 @@ class Diagnosticador:
         possibilidade_tricomoniase.view(sim=tricomoniase_simulacao)
     
     def diagnostico_hiv(self, sintomas):
+        """
+        Método para gerar diagnóstico sobre a IST HIV, de acordo com os sintomas
+        informado pelo usuário. O código é feito em alguns passos, são eles:
+
+        Passos:
+        #####
+        * 1º: Define as variáveis de entrada do sistema, o universo em questão, isto é, o intervalo de valores.
+        * 2º: Define o conjunto Fuzzy/Função de pertinência para cada variável linguistica escolhida.
+        * 3º: Define a variável de saída do sistema.
+        * 4º: Conjunto fuzzy/Função de pertinência para cada saída.
+        * 5º: Definição das regras do sistema.
+        * 6º: Cria o cotrolador do sistema.
+        * 7º: Recebe as entradas, as computa e gera o resultado.
+
+        :param sintomas: Objeto da classe Sintomas
+        :type sintomas: Sintomas
+        """
         MUDA_DEZ = 10
         MUDA_VINTE = 20
         MUDA_TRINTA = 30
@@ -7022,6 +7188,10 @@ class Diagnosticador:
         possibilidade_hiv.view(sim=hiv_simulacao)
 
 class Sintomas:
+    """
+	Classe com atributos que descrevem os sintomas de cada IST.
+    """
+
     def __init__(self):
         self.ultima_relacao_sexual_vaginal = 0
         self.ultima_relacao_sexual_oral = 0
