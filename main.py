@@ -1,3 +1,10 @@
+"""
+Nessa parte do sistema concentram-se funções responsáveis por fazer a interface com o usuário,
+coletando os dados para que sejam enviados para a class diagnosticador e por consequência gerar
+as preliminares sobre cada IST. Também foi criado nessa parte, a lógica para que seja executado
+vários diagnosticos de forma paralela.
+"""
+
 import multiprocessing
 from diagnosticador.diagnosticador import Diagnosticador, Sintomas, LabelSintomas
 
@@ -5,6 +12,19 @@ NUM_PROCESS = 3
 limit = NUM_PROCESS
 
 def init_process(doencas, sintomas):
+    """
+    Função responsável por criar uma lista com todos os processos que serão executados. Esses processos são
+    diagnósticos de cada IST. Essa e uma lista vazia, processos que ainda serão iniciados, são retornados.
+
+    :param doencas: lista com o objeto de cada função de diagnóstico IST
+    :type doencas: list[]
+    :param sintomas: Objeto da classe Sintomas
+    :type sintomas: Sintomas
+    :return: process:
+    :rtype: list[]
+    :return: process_started:
+    :rtype: list[]
+    """
     process = []
     process_started = []
     for doenca in doencas:
@@ -14,15 +34,36 @@ def init_process(doencas, sintomas):
     return process, process_started
 
 def start_process(process, process_started):
+    """
+    Função que inicia cada processo de acordo com o limite imposto
+    de execuções paralelas. Após iniciar um processo, este será transferido
+    para outra lista de processos que foram iniciados.
+
+    :param process: Essa lista possui todos os processos registrados que estão aguardando para serem execudos.
+    :type process: list[]
+    :param process_started: Lista com todos os processos que foram executados e que ainda se encontram em execução.
+    :type process_started: list[]
+
+    """
+
     global limit
     while limit and process:
         p = process.pop()
         process_started.append(p)
         p.start()
-        # print(f"{p}")
         limit -= 1
 
 def valor(description):
+    """
+    Função para coletar a intensidade do sintoma sentida pelo usuário. Para isso, é usado uma lista
+    de enumeradores contendo todas as intensidades cadastradas no sistema. Após exibir essas opções,
+    é mostrado de qual sintoma se trata. Essa informação é coletada e retornada para onde chamou.
+    
+    :param description: Descrição sobre o sintoma que será coletado a informação.
+    :type description: String
+    :return: intensidade: Intensidade sentida pelo usuário para o sintoma questionado.
+    :rtype: int
+    """
     intensidade = [
         LabelSintomas.NENHUMA,
         LabelSintomas.BAIXA,
@@ -39,7 +80,18 @@ def valor(description):
         resultado = int(input(f"INTENSIDADE DO SINTOMA [{description}]: "))
     return intensidade[resultado].value
 
+
 def mockaDados(sintomas):
+    """
+    Função responsável por coletar informações do usuário para realizar o diagnostico. 
+    Perguntas do tipo, 'qual foi a ultima relação sexual desprotegida' e 'quais sintomas
+    o usuário está sentindo', são abordadas aqui. 
+    O objeto 'sintomas' passado por parâmetro será modificado recebendo os valores informado.
+    É utilizado a função valor() como auxiliar.
+
+    :param sintomas: Objeto da classe Sintomas
+    :type sintomas: Sintomas
+    """
     
     sintomas.ultima_relacao_sexual_vaginal = int(input(f"Última relação sexual vaginal [DIAS]: "))
     sintomas.ultima_relacao_sexual_oral = int(input(f"Última relação sexual oral [DIAS]: "))
@@ -76,8 +128,11 @@ def mockaDados(sintomas):
     sintomas.cansaco_excessivo = valor("Cansaço em excesso")
 
 
-
 if __name__ == '__main__':
+    """
+    Função principal que faz interface com o usuário
+    """
+
     diagnosticador = Diagnosticador()
     sintomas = Sintomas()
 
